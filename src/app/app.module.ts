@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MsalService, MSAL_INSTANCE, MsalModule } from "@azure/msal-angular";
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
+import { MatTabGroupComponent } from './mat-tab-group/mat-tab-group.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatInputModule} from '@angular/material/input';
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
     auth: {
@@ -16,13 +22,19 @@ export function MSALInstanceFactory(): IPublicClientApplication{
 }
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MatTabGroupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MsalModule
+    MsalModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatTabsModule,
+    MatInputModule
   ],
   providers: [
     {
